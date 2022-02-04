@@ -1,15 +1,15 @@
 from distutils.core import setup
 setup(
-  name = 'hero',
-  packages = ['hero'],
+  name = 'hero1',
+  packages = ['hero1'],
   version = '0.1',
   license='MIT',
   description = 'Hero',
   author = 'Hoewon Kim',
   author_email = 'hoewon.kim@gmail.com',
-  url = 'https://github.com/danielhwkim/Hero',
-  download_url = 'https://github.com/danielhwkim/Hero/archive/refs/tags/v_0_1.tar.gz',
-  keywords = ['hero'],
+  url = 'https://github.com/danielhwkim/Hero1',
+  download_url = 'https://github.com/danielhwkim/Hero1/archive/refs/tags/v_0_1.tar.gz',
+  keywords = ['hero1'],
   install_requires=[
           'argparse',
           'logging',
