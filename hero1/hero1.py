@@ -8,7 +8,7 @@ import threading
 from zeroconf import IPVersion, ServiceBrowser, ServiceStateChange, Zeroconf, ZeroconfServiceTypes
 #import cmd
 import socket
-import command_pb2
+import hero1.command_pb2
 
 class ServiceListener:
   def __init__(self, event_result_available, verbose):
