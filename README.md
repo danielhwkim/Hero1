@@ -18,10 +18,10 @@ if __name__ == "__main__":
   hero1.render()
 
   hero1.scan()
-  while hero1.canMoveDown():
-  hero1.moveDown()
-  hero1.moveRight()
-  hero1.moveUp()
+    while hero1.canMoveDown():
+    hero1.moveDown()
+    hero1.moveRight()
+    hero1.moveUp()
 ```
 
 
