@@ -8,7 +8,7 @@ setup(
   author = 'Hoewon Kim',
   author_email = 'hoewon.kim@gmail.com',
   url = 'https://github.com/danielhwkim/Hero1',
-  download_url = 'https://github.com/danielhwkim/Hero1/archive/refs/tags/v_0_1.tar.gz',
+  download_url = 'https://github.com/danielhwkim/Hero1/archive/refs/tags/v_0_2.tar.gz',
   keywords = ['hero1'],
   install_requires=[
           'zeroconf'
