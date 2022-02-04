@@ -8,7 +8,7 @@ import threading
 from zeroconf import IPVersion, ServiceBrowser, ServiceStateChange, Zeroconf, ZeroconfServiceTypes
 #import cmd
 import socket
-import hero1.command_pb2
+from hero1.command_pb2 import CmdType, Cmd
 
 class ServiceListener:
   def __init__(self, event_result_available, verbose):
@@ -77,8 +77,8 @@ def setup(name, verbose=False):
 
 def init(w,h,x,y):
   global s
-  c = command_pb2.Cmd()
-  c.cmd = command_pb2.CmdType.INIT
+  c = Cmd()
+  c.cmd = CmdType.INIT
   #c.strings.append('map;B;gen:A:1:7\nshift:1:2\ncoin:0:-2:1:7:1')
   #c.strings.append('map;B;gen:A:4:4\nparams:A:2:2')
   c.strings.append(f'map;B;gen:A:{w}:{h}\nshift:1:2\nparams:A:{x}:{y}:test\n')
@@ -87,8 +87,8 @@ def init(w,h,x,y):
 
 def cmdS(str):
   global s
-  c = command_pb2.Cmd()
-  c.cmd = command_pb2.CmdType.HERO
+  c = Cmd()
+  c.cmd = CmdType.HERO
   c.strings.append(str)
   s.sendall(c.SerializeToString())
   return s.recv(1024)
@@ -98,8 +98,8 @@ def cmd(s):
 
 def render():
   global s
-  c = command_pb2.Cmd()
-  c.cmd = command_pb2.CmdType.READY
+  c = Cmd()
+  c.cmd = CmdType.READY
   s.sendall(c.SerializeToString())
   return s.recv(1024)
 
