@@ -11,13 +11,7 @@ setup(
   download_url = 'https://github.com/danielhwkim/Hero1/archive/refs/tags/v_0_1.tar.gz',
   keywords = ['hero1'],
   install_requires=[
-          'argparse',
-          'logging',
-          'zeroconf',
-          'threading',
-          'typing',
-          'time',
-          'socket'
+          'zeroconf'
       ],
   classifiers=[
     'Development Status :: 3 - Alpha',
