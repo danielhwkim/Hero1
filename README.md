@@ -17,7 +17,7 @@ s.recv(1024)
 hero1.render()
 
 hero1.scan()
-  while hero1.canMoveDown():
+while hero1.canMoveDown():
   hero1.moveDown()
   hero1.moveRight()
   hero1.moveUp()
