@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-import hero1
-import command_pb2
+import hero1.hero1
+import hero1.command_pb2
 
 if __name__ == "__main__":
 	s = hero1.setup("dani")
