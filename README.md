@@ -4,7 +4,7 @@
 import hero1
 
 if __name__ == "__main__":
-	s = hero1.setup("test")
+  s = hero1.setup("test")
   hero1.init(10,10,0,0)
   c = hero1.Cmd()
   c.cmd = hero1.CmdType.MAP
@@ -17,11 +17,11 @@ if __name__ == "__main__":
   s.recv(1024)
   hero1.render()
 
-	hero1.scan()
-	while hero1.canMoveDown():
-		hero1.moveDown()
-	hero1.moveRight()
-	hero1.moveUp()
+  hero1.scan()
+  while hero1.canMoveDown():
+  hero1.moveDown()
+  hero1.moveRight()
+  hero1.moveUp()
 ```
 
 
