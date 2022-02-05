@@ -75,6 +75,19 @@ def setup(name, verbose=False):
   #cmd.s = s
   return s
 
+def setup_with_ip(ip, verbose=False):
+  global s
+  HOST = ip # The server's hostname or IP address
+  PORT = 4040        # The port used by the server
+
+  s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+  s.connect((HOST, PORT))
+  #s.sendall(mapinfo)
+  #data = s.recv(1024)
+  #print('Received', repr(data))
+  #cmd.s = s
+  return s
+
 def init(w,h,x,y):
   global s
   c = Cmd()
