@@ -9,6 +9,7 @@ from zeroconf import IPVersion, ServiceBrowser, ServiceStateChange, Zeroconf, Ze
 #import cmd
 import socket
 from hero1.command_pb2 import CmdType, Cmd
+import hero1.pcmd
 
 class ServiceListener:
   def __init__(self, event_result_available, verbose):
@@ -68,11 +69,12 @@ def setup(name, verbose=False):
   PORT = 4040        # The port used by the server
 
   s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+  s.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
   s.connect((HOST, PORT))
   #s.sendall(mapinfo)
   #data = s.recv(1024)
   #print('Received', repr(data))
-  #cmd.s = s
+  hero1.pcmd.s = s
   return s
 
 def setup_with_ip(ip, verbose=False):
@@ -81,11 +83,13 @@ def setup_with_ip(ip, verbose=False):
   PORT = 4040        # The port used by the server
 
   s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+  s.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
   s.connect((HOST, PORT))
   #s.sendall(mapinfo)
   #data = s.recv(1024)
   #print('Received', repr(data))
   #cmd.s = s
+  hero1.pcmd.s = s
   return s
 
 def init(w,h,x,y):
