@@ -2,16 +2,17 @@ from distutils.core import setup
 setup(
   name = 'hero1',
   packages = ['hero1'],
-  version = '0.6',
+  version = '0.7',
   license='MIT',
   description = 'Hero',
   author = 'Hoewon Kim',
   author_email = 'hoewon.kim@gmail.com',
   url = 'https://github.com/danielhwkim/Hero1',
-  download_url = 'https://github.com/danielhwkim/Hero1/archive/refs/tags/v_0_6.tar.gz',
+  download_url = 'https://github.com/danielhwkim/Hero1/archive/refs/tags/v_0_7.tar.gz',
   keywords = ['hero1'],
   install_requires=[
-          'zeroconf'
+          'zeroconf',
+          'protobuf',
       ],
   classifiers=[
     'Development Status :: 3 - Alpha',
@@ -22,5 +23,6 @@ setup(
     'Programming Language :: Python :: 3.4',
     'Programming Language :: Python :: 3.5',
     'Programming Language :: Python :: 3.6',
+    'Programming Language :: Python :: 3.10',    
   ],
 )
