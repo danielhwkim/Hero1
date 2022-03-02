@@ -87,7 +87,7 @@ def getType(name):
   else:
     return BodyType.kinematic
 
-def add_body(o):
+def add_body(o, trackable=true):
   match o['name']:
     case 'fruit'|'trampoline':
       bi = BodyInfo()
@@ -107,6 +107,7 @@ def add_body(o):
       bi.fixedRotation = True
       bi.type = BodyType.static if 'type' not in o else getType(o['type']) 
       bi.skin = o['skin']
+      bi.trackable = trackable
       send_obj(bi)
     case 'actor':
       bi = BodyInfo()
@@ -126,6 +127,7 @@ def add_body(o):
       bi.fixedRotation = True
       bi.type = BodyType.dynamic
       bi.skin = o['skin']
+      bi.trackable = trackable      
       send_obj(bi)      
       pass
     case 'void':
@@ -146,6 +148,7 @@ def add_body(o):
       bi.fixedRotation = True
       bi.type = BodyType.static
       bi.skin = o['skin']
+      bi.trackable = trackable      
       send_obj(bi)
     case 'box':
       bi = BodyInfo()
@@ -165,6 +168,7 @@ def add_body(o):
       bi.fixedRotation = True
       bi.type = BodyType.static
       bi.skin = o['skin']
+      bi.trackable = trackable      
       send_obj(bi)      
     case _:
       addOC(o)  
