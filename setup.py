@@ -2,13 +2,13 @@ from distutils.core import setup
 setup(
   name = 'hero1',
   packages = ['hero1'],
-  version = '0.7',
+  version = '0.8',
   license='MIT',
   description = 'Hero',
   author = 'Hoewon Kim',
   author_email = 'hoewon.kim@gmail.com',
   url = 'https://github.com/danielhwkim/Hero1',
-  download_url = 'https://github.com/danielhwkim/Hero1/archive/refs/tags/v_0_7.tar.gz',
+  download_url = 'https://github.com/danielhwkim/Hero1/archive/refs/tags/v_0_8.tar.gz',
   keywords = ['hero1'],
   install_requires=[
           'zeroconf',
