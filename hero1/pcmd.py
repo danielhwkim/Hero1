@@ -216,6 +216,14 @@ def set_init(info):
   s.sendall(head_bytes + len_bytes + bs)  
   recv_ack()
 
+def set_query(info):
+  global s
+  bs = info.SerializeToString()
+  head_bytes = struct.pack('<L', Head.query)  
+  len_bytes = struct.pack('<L', len(bs))
+  print(f'size:8 + {len(bs)}')
+  s.sendall(head_bytes + len_bytes + bs)  
+
 
 def addOa(o):
   addO(o)
