@@ -196,34 +196,26 @@ def set_bodyop(bid, op, x, y):
   bs = info.SerializeToString()
   head_bytes = struct.pack('<L', Head.bodyop)  
   len_bytes = struct.pack('<L', len(bs))
-  print(f'size:4 + {len(bs)}')
+  print(f'{op} size:4 + {len(bs)}')
   s.sendall(head_bytes + len_bytes + bs)
 
-def set_setting(info):
+def send_info(info, head):
   global s
   bs = info.SerializeToString()
-  head_bytes = struct.pack('<L', Head.setting)  
+  head_bytes = struct.pack('<L', head)  
   len_bytes = struct.pack('<L', len(bs))
   print(f'size:4 + {len(bs)}')
-  s.sendall(head_bytes + len_bytes + bs)  
+  s.sendall(head_bytes + len_bytes + bs)    
+
+def set_setting(info):
+  send_info(info, Head.setting)
 
 def set_init(info):
-  global s
-  bs = info.SerializeToString()
-  head_bytes = struct.pack('<L', Head.init)  
-  len_bytes = struct.pack('<L', len(bs))
-  print(f'size:8 + {len(bs)}')
-  s.sendall(head_bytes + len_bytes + bs)  
+  send_info(info, Head.init)
   recv_ack()
 
 def set_query(info):
-  global s
-  bs = info.SerializeToString()
-  head_bytes = struct.pack('<L', Head.query)  
-  len_bytes = struct.pack('<L', len(bs))
-  print(f'size:8 + {len(bs)}')
-  s.sendall(head_bytes + len_bytes + bs)  
-
+  send_info(info, Head.query)
 
 def addOa(o):
   addO(o)
@@ -284,3 +276,8 @@ def cmdOnly(cmd):
   c.cmd = CmdType.COMMAND2
   c.strings.append(cmd)
   send2(c)    
+
+def recvCmdInfo():
+  c = CmdInfo()
+  c.ParseFromString(s.recv(1024))
+  return c
